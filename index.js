@@ -13,9 +13,9 @@ function trimProperties(obj) {
    for (var key in newObj) {
       if (newObj.hasOwnProperty(key)) {
           newObj[key] = newObj[key].trim()
-          //console.log(key + " -> " + newObj[key]);
       }
-  }
+   }
+   return newObj
 }
 //trimProperties( { first:'    one   ', second:'      two      '})
 
@@ -31,9 +31,9 @@ function trimPropertiesMutation(obj) {
    for (var key in obj) {
       if (obj.hasOwnProperty(key)) {
           obj[key] = obj[key].trim()
-          //console.log(key + " -> " + obj[key]);
       }
-  }
+   }
+   return obj
 }
 //trimPropertiesMutation( { first:'    one   ', second:'      two      '})
 
@@ -52,7 +52,7 @@ function findLargestInteger(integers) {
         largest = integers[i]
      }
   }
-  console.log(largest)
+  return largest
 }
 
 //findLargestInteger([2, 1, 7, 31, 14, 7, 51]) // returns 14
