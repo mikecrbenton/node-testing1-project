@@ -135,16 +135,25 @@ describe('[Exercise 6] Car', () => {
     focus = new utils.Car('focus', 20, 30) // each test must start with a fresh car
   })
   it('[15] driving the car returns the updated odometer', () => {
-    // ✨ test away
+    const odometerReading = focus.drive(100)
+    expect(odometerReading).toBe(100)
   })
   it('[16] driving the car uses gas', () => {
-    // ✨ test away
+    odometerReading = focus.drive(120)
+    console.log(focus.tank)
+    // 120 miles at 30mpg = 4 gallons of gas to subtract from 20
+    expect(focus.tank).toBe(16)
   })
   it('[17] refueling allows to keep driving', () => {
-    // ✨ test away
+    const odometerReading = focus.drive(599)
+    expect(odometerReading).toBe(599)
+    focus.refuel(20)
+    focus.drive(599)
+    expect(odometerReading).toBe(599)
   })
   it('[18] adding fuel to a full tank has no effect', () => {
-    // ✨ test away
+    const fuelTank = focus.refuel(200)
+    expect(fuelTank).toBe(20)
   })
 })
 

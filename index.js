@@ -159,6 +159,7 @@ class Car {
     this.tank = tankSize // car initializes full of gas
     this.mpg = mpg // 
     this.name = name
+    this.tankSize = tankSize
   }
 
   /**
@@ -180,7 +181,7 @@ class Car {
    console.log(`\nTHE DISTANCE IS = ${distance}`);
    console.log(`THE THE TANK IS  = ${this.tank}`);
    //console.log(`THE ODOMETER IS  = ${this.odometer}`);
-   console.log( `(Math.round(${distance} / ${this.mpg})`); 
+   console.log( `${distance} / ${this.mpg}`); 
    //==============================================
 
       if( distance > (this.tank * this.mpg) ){
@@ -191,6 +192,8 @@ class Car {
          this.tank -= distance/this.mpg;
          console.log("the odometer is", this.odometer)
       }
+
+      return this.odometer
   }
 
   /**
@@ -205,13 +208,13 @@ class Car {
    * focus.refuel(99) // returns 600 (tank only holds 20)
    */
   refuel(gallons) {
-
-    if(gallons > tankSize){
-      this.tank += tankSize
+    if(gallons > this.tankSize){
+      this.tank = 20
+      return this.tank
     }else{
        this.tank += gallons
+       return (this.tank * this.mpg)
     }
-    return (this.tank * this.mpg)
   }
 }
 
